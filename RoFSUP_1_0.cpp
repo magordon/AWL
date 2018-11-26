@@ -18,7 +18,7 @@
 #include <math.h>
 #include <iostream>
 #include <chrono>
-#include "RoFSuP.h"
+#include "RoFSUP.h"
 #include <vector>
 #include <fstream>
 using std::vector;
@@ -76,8 +76,11 @@ int main()
         for (int j = 0; j < ydiv; ++j)
         {
             Fz[i][j].resize(zetadiv);
+            std::fill(Fz[i][j].begin(), Fz[i][j].end(), 0);
             Fx[i][j].resize(zetadiv);
+            std::fill(Fx[i][j].begin(), Fx[i][j].end(), 0);
             Fy[i][j].resize(zetadiv);
+            std::fill(Fy[i][j].begin(), Fy[i][j].end(), 0);
         }
     }
     

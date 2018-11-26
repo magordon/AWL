@@ -450,9 +450,6 @@ void CalcForceMesh(vector <vector<vector<double> > >& Fz, vector <vector<vector<
 {// Calculate force at each desired spot in space
     
     //Resize vectors
-    Fz.resize(xdiv);
-    Fx.resize(xdiv);
-    Fy.resize(xdiv);
     x.resize(xdiv);
     y.resize(ydiv);
     zeta.resize(zetadiv);
@@ -466,19 +463,6 @@ void CalcForceMesh(vector <vector<vector<double> > >& Fz, vector <vector<vector<
         zeroesEA[i].resize(sN);
         zeroesHS[i].resize(sN);
         zeroesHA[i].resize(sN);
-    }
-    
-    for (int i = 0; i < xdiv; ++i)
-    {
-        Fz[i].resize(ydiv);
-        Fx[i].resize(ydiv);
-        Fy[i].resize(ydiv);
-        for (int j = 0; j < ydiv; ++j)
-        {
-            Fz[i][j].resize(zetadiv);
-            Fx[i][j].resize(zetadiv);
-            Fy[i][j].resize(zetadiv);
-        }
     }
     //Defining additional vectors to help split up computation
     // (a,b,c) component depends on value of (x,y,z)
@@ -660,7 +644,7 @@ void CalcForceMesh(vector <vector<vector<double> > >& Fz, vector <vector<vector<
                 {
                     for(int h = 0; h < zetadiv; h++)
                     {
-                    
+                        std::cout<< "Adding Force" <<std::endl;
                         Fx[f][g][h]+= 4.0*M_PI*q*aFx[f]*(bFxES[h]*cFxES[g]+bFxEA[h]*cFxEA[g]+bFxHS[h]*cFxHS[g]+bFxHA[h]*cFxHA[g]);
                         Fy[f][g][h]+= 4.0*M_PI*q*aFy[f]*(bFyES[h]*cFyES[g]+bFyEA[h]*cFyEA[g]+bFyHS[h]*cFyHS[g]+bFyHA[h]*cFyHA[g]);
                         Fz[f][g][h]+= 4.0*M_PI*q*aFz[f]*(bFzES[h]*cFzES[g]+bFzEA[h]*cFzEA[g]+bFzHS[h]*cFzHS[g]+bFzHA[h]*cFzHA[g]);
