@@ -644,8 +644,8 @@ void CalcForceMesh(vector <vector<vector<double> > >& Fz, vector <vector<vector<
                 {
                     for(int h = 0; h < zetadiv; h++)
                     {
-                        Fx[f][g][h]+= 4.0*M_PI*q*aFx[f]*(bFxES[h]*cFxES[g]+bFxEA[h]*cFxEA[g]+bFxHS[h]*cFxHS[g]+bFxHA[h]*cFxHA[g]);
-                        Fy[f][g][h]+= 4.0*M_PI*q*aFy[f]*(bFyES[h]*cFyES[g]+bFyEA[h]*cFyEA[g]+bFyHS[h]*cFyHS[g]+bFyHA[h]*cFyHA[g]);
+                        Fx[f][g][h]+= -4.0*M_PI*q*aFx[f]*(bFxES[h]*cFxES[g]+bFxEA[h]*cFxEA[g]+bFxHS[h]*cFxHS[g]+bFxHA[h]*cFxHA[g]);
+                        Fy[f][g][h]+= -4.0*M_PI*q*aFy[f]*(bFyES[h]*cFyES[g]+bFyEA[h]*cFyEA[g]+bFyHS[h]*cFyHS[g]+bFyHA[h]*cFyHA[g]);
                         Fz[f][g][h]+= 4.0*M_PI*q*aFz[f]*(bFzES[h]*cFzES[g]+bFzEA[h]*cFzEA[g]+bFzHS[h]*cFzHS[g]+bFzHA[h]*cFzHA[g]);
                     }
                 }
